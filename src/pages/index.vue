@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const name = $ref('')
 
-const router = useRouter()
 </script>
 
 <template>
@@ -28,10 +27,12 @@ const router = useRouter()
       bg="transparent"
       border="~ rounded gray-200 dark:gray-700"
       outline="none active:none"
-    />
+    >
 
     <div>
-      <button class="m-3 text-sm btn" :disabled="!name">Go</button>
+      <button class="m-3 text-sm btn" :disabled="!name">
+        Go
+      </button>
     </div>
   </div>
 </template>
