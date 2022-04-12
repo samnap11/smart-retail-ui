@@ -25,6 +25,7 @@ export default defineConfig({
         sans: 'DM Sans',
         serif: 'DM Serif Display',
         mono: 'DM Mono',
+        lato: 'Lato:400,600,700',
       },
     }),
   ],

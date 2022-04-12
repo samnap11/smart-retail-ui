@@ -1,0 +1,100 @@
+{
+    "data": [
+        {
+            "section": "Section A",
+            "storefront": "Storefront 1"
+        },
+        {
+            "section": "Section A",
+            "storefront": "Storefront 2"
+        },
+        {
+            "section": "Section A",
+            "storefront": "Storefront 3"
+        },
+        {
+            "section": "Section A",
+            "storefront": "Storefront 4"
+        },
+        {
+            "section": "Section A",
+            "storefront": "Storefront 5"
+        },
+        {
+            "section": "Section A",
+            "storefront": "Storefront 6"
+        },
+        {
+            "section": "Section B",
+            "storefront": "Storefront 7"
+        },
+        {
+            "section": "Section B",
+            "storefront": "Storefront 8"
+        },
+        {
+            "section": "Section B",
+            "storefront": "Storefront 9"
+        },
+        {
+            "section": "Section B",
+            "storefront": "Storefront 10"
+        },
+        {
+            "section": "Section B",
+            "storefront": "Storefront 11"
+        },
+        {
+            "section": "Section B",
+            "storefront": "Storefront 12"
+        },
+        {
+            "section": "Section C",
+            "storefront": "Storefront 13"
+        },
+        {
+            "section": "Section C",
+            "storefront": "Storefront 14"
+        },
+        {
+            "section": "Section C",
+            "storefront": "Storefront 15"
+        },
+        {
+            "section": "Section C",
+            "storefront": "Storefront 16"
+        },
+        {
+            "section": "Section C",
+            "storefront": "Storefront 17"
+        },
+        {
+            "section": "Section C",
+            "storefront": "Storefront 18"
+        },
+        {
+            "section": "Section D",
+            "storefront": "Storefront 19"
+        },
+        {
+            "section": "Section D",
+            "storefront": "Storefront 20"
+        },
+        {
+            "section": "Section D",
+            "storefront": "Storefront 21"
+        },
+        {
+            "section": "Section D",
+            "storefront": "Storefront 22"
+        },
+        {
+            "section": "Section D",
+            "storefront": "Storefront 23"
+        },
+        {
+            "section": "Section D",
+            "storefront": "Storefront 24"
+        }
+    ]
+}
