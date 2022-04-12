@@ -6,6 +6,6 @@ const stockData = stock.data
 <template>
   <main class="mx-auto w-8/12 mt-4">
     <Header />
-    <Row :stock-data="stockData" />
+    <Rows :stock-data="stockData" />
   </main>
 </template>

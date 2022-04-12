@@ -8,8 +8,16 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const staticDemoIndex = [1, 7, 15]
-const indexIncluded = (index: number) => staticDemoIndex.includes(index)
+const emptyStorefrontIndex = ref(new Set<number>([1, 2, 18, 20]))
+const indexIncluded = (index: number) => emptyStorefrontIndex.value.has(index)
+
+const addEmptyStorefrontIndex = (index: number) => {
+  emptyStorefrontIndex.value.add(index)
+}
+
+const removeEmptyStorefrontIndex = (index: number) => {
+  emptyStorefrontIndex.value.delete(index)
+}
 </script>
 <template>
   <div class="flex flex-col">
@@ -27,5 +35,11 @@ const indexIncluded = (index: number) => staticDemoIndex.includes(index)
         {{ item.section }}
       </div>
     </div>
+    <button @click="addEmptyStorefrontIndex(10)">
+      Add
+    </button>
+    <button @click="removeEmptyStorefrontIndex(10)">
+      Remove
+    </button>
   </div>
 </template>

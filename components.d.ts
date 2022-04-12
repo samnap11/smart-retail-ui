@@ -5,7 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Header: typeof import('./src/components/Stock/Header.vue')['default']
-    Row: typeof import('./src/components/Stock/Row.vue')['default']
+    Rows: typeof import('./src/components/Stock/Rows.vue')['default']
   }
 }
 
