@@ -22,9 +22,7 @@ export default defineConfig({
     }),
     presetWebFonts({
       fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
+        roboto: 'Roboto:400,600,700',
         lato: 'Lato:400,600,700',
       },
     }),

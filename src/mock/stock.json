@@ -2,99 +2,47 @@
     "data": [
         {
             "section": "Section A",
-            "storefront": "Storefront 1"
-        },
-        {
-            "section": "Section A",
-            "storefront": "Storefront 2"
-        },
-        {
-            "section": "Section A",
-            "storefront": "Storefront 3"
-        },
-        {
-            "section": "Section A",
-            "storefront": "Storefront 4"
-        },
-        {
-            "section": "Section A",
-            "storefront": "Storefront 5"
-        },
-        {
-            "section": "Section A",
-            "storefront": "Storefront 6"
+            "storefronts": [
+                "Storefronts 1",
+                "Storefronts 2",
+                "Storefronts 3",
+                "Storefronts 4",
+                "Storefronts 5",
+                "Storefronts 6"
+            ]
         },
         {
             "section": "Section B",
-            "storefront": "Storefront 7"
-        },
-        {
-            "section": "Section B",
-            "storefront": "Storefront 8"
-        },
-        {
-            "section": "Section B",
-            "storefront": "Storefront 9"
-        },
-        {
-            "section": "Section B",
-            "storefront": "Storefront 10"
-        },
-        {
-            "section": "Section B",
-            "storefront": "Storefront 11"
-        },
-        {
-            "section": "Section B",
-            "storefront": "Storefront 12"
+            "storefronts": [
+                "Storefronts 7",
+                "Storefronts 8",
+                "Storefronts 9",
+                "Storefronts 10",
+                "Storefronts 11",
+                "Storefronts 12"
+            ]
         },
         {
             "section": "Section C",
-            "storefront": "Storefront 13"
-        },
-        {
-            "section": "Section C",
-            "storefront": "Storefront 14"
-        },
-        {
-            "section": "Section C",
-            "storefront": "Storefront 15"
-        },
-        {
-            "section": "Section C",
-            "storefront": "Storefront 16"
-        },
-        {
-            "section": "Section C",
-            "storefront": "Storefront 17"
-        },
-        {
-            "section": "Section C",
-            "storefront": "Storefront 18"
+            "storefronts": [
+                "Storefronts 13",
+                "Storefronts 14",
+                "Storefronts 15",
+                "Storefronts 16",
+                "Storefronts 17",
+                "Storefronts 18"
+            ]
         },
         {
             "section": "Section D",
-            "storefront": "Storefront 19"
-        },
-        {
-            "section": "Section D",
-            "storefront": "Storefront 20"
-        },
-        {
-            "section": "Section D",
-            "storefront": "Storefront 21"
-        },
-        {
-            "section": "Section D",
-            "storefront": "Storefront 22"
-        },
-        {
-            "section": "Section D",
-            "storefront": "Storefront 23"
-        },
-        {
-            "section": "Section D",
-            "storefront": "Storefront 24"
+            "storefronts": [
+                "Storefronts 19",
+                "Storefronts 20",
+                "Storefronts 21",
+                "Storefronts 22",
+                "Storefronts 23",
+                "Storefronts 24"
+            ]
         }
     ]
 }

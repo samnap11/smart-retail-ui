@@ -1,10 +1,5 @@
 <template>
-  <div class="flex flex-row border-2 rounded-t border-black bg-cyan-800">
-    <header class="w-1/2 h-18 text-center border-r-2 text-2xl py-5 align-middle font-semibold font-lato text-zinc-200">
-      Storefront
-    </header>
-    <header class="w-1/2 h-18 text-center text-2xl py-5 align-middle font-semibold font-lato text-zinc-200">
-      Section
-    </header>
-  </div>
+  <header class="font-roboto font-bold text-2xl tracking-wide leading-6 text-lime-200">
+    Storefront Stock
+  </header>
 </template>
