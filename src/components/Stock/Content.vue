@@ -6,10 +6,7 @@ interface Item {
 interface Props {
   data: Item[]
 }
-interface ServerEvent {
-  storefront: number
-  status: 0 | 1
-}
+
 const props = defineProps<Props>()
 
 const emptyStorefrontIndex = ref(new Set<number>())
@@ -24,16 +21,15 @@ const removeFromIndexSet = (index: number) => {
 
 const doesIndexExistInTheSet = (index: number) => emptyStorefrontIndex.value.has(index)
 
-const { data } = useEventSource(import.meta.env.VITE_SSE_URL)
+const { data, event } = useEventSource(import.meta.env.VITE_SSE_URL, ['empty', 'restocked'])
 
-watch(data, (newData) => {
+watch([data, event], ([newData, newEvent]) => {
   if (newData) {
-    const parsed: ServerEvent = JSON.parse(newData)
-    if (parsed.status === 0)
-      addToIndexSet(parsed.storefront)
+    if (newEvent === 'empty')
+      addToIndexSet(Number(newData))
 
     else
-      removeFromIndexSet(parsed.storefront)
+      removeFromIndexSet(Number(newData))
   }
 })
 
@@ -48,7 +44,7 @@ const STOREFRONTS_AMOUNT_EACH_SECTION = props.data[0].storefronts.length
       <Storefront
         v-for="(storefront, i) in item.storefronts"
         :key="`storefront-${index * STOREFRONTS_AMOUNT_EACH_SECTION + i + 1}`" :store-front-name="storefront"
-        :empty="doesIndexExistInTheSet(index * STOREFRONTS_AMOUNT_EACH_SECTION + i)"
+        :empty="doesIndexExistInTheSet(index * STOREFRONTS_AMOUNT_EACH_SECTION + i + 1)"
       />
     </section>
   </article>
