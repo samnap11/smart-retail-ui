@@ -48,11 +48,4 @@ const STOREFRONTS_AMOUNT_EACH_SECTION = props.data[0].storefronts.length
       />
     </section>
   </article>
-  <!-- TODO: Remove buttons -->
-  <button @click="addToIndexSet(10)">
-    Add
-  </button>
-  <button @click="removeFromIndexSet(10)">
-    Remove
-  </button>
 </template>
