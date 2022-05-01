@@ -1,0 +1,48 @@
+{
+    "data": [
+        {
+            "section": "Section A",
+            "storefronts": [
+                "Storefronts 1",
+                "Storefronts 2",
+                "Storefronts 3",
+                "Storefronts 4",
+                "Storefronts 5",
+                "Storefronts 6"
+            ]
+        },
+        {
+            "section": "Section B",
+            "storefronts": [
+                "Storefronts 7",
+                "Storefronts 8",
+                "Storefronts 9",
+                "Storefronts 10",
+                "Storefronts 11",
+                "Storefronts 12"
+            ]
+        },
+        {
+            "section": "Section C",
+            "storefronts": [
+                "Storefronts 13",
+                "Storefronts 14",
+                "Storefronts 15",
+                "Storefronts 16",
+                "Storefronts 17",
+                "Storefronts 18"
+            ]
+        },
+        {
+            "section": "Section D",
+            "storefronts": [
+                "Storefronts 19",
+                "Storefronts 20",
+                "Storefronts 21",
+                "Storefronts 22",
+                "Storefronts 23",
+                "Storefronts 24"
+            ]
+        }
+    ]
+}
