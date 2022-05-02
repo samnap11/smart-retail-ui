@@ -8,23 +8,56 @@ const birthdate = ref('')
 const cardId = ref('')
 const isSuccess = ref(false)
 
-async function sendForm() {
+const isModalOpened = ref(false)
+const isSubmitting = ref(false)
+
+const sendForm = async() => {
   const req: CreateUserRequest = {
     name: name.value,
     gender: gender.value,
     birthdate: birthdate.value,
     card_id: cardId.value,
   }
-  const statusCode = await createUserApi(req)
-  isSuccess.value = statusCode === 200
+  const { statusCode, isFinished, isFetching } = await createUserApi(req)
+  watch([isFetching, isFinished], ([newIsFetching, newIsFinished]) => {
+    if (newIsFetching && !newIsFinished) { isSubmitting.value = true }
+
+    else if (!newIsFetching && newIsFinished) {
+      isSubmitting.value = false
+      isSuccess.value = statusCode.value === 200
+      isModalOpened.value = true
+    }
+  })
 }
+
+const clearForm = () => {
+  name.value = ''
+  gender.value = 'L'
+  birthdate.value = ''
+  cardId.value = ''
+  isSuccess.value = false
+}
+
+const modalButtonOnClick = () => {
+  isModalOpened.value = false
+  if (isSuccess.value)
+    clearForm()
+}
+
+const url = `${import.meta.env.VITE_API_URL}/sse`
+
+const { data } = useEventSource(url, ['register'])
+watch(data, (newData) => {
+  if (newData)
+    cardId.value = newData
+})
 </script>
-<template class="container">
+<template>
   <h1 class="bold text-7xl m-10">
     Registration Form
   </h1>
 
-  <div class="flex flex-col">
+  <main class="flex flex-col">
     <form @submit.prevent="sendForm()">
       <div class="ml-32 mr-32  mb-7  text-black">
         <p class="text-left text-white">
@@ -40,8 +73,10 @@ async function sendForm() {
           Jenis Kelamin
         </p>
         <div class="flex text-white mt-2 left items-center">
-          <input id="L" v-model="gender" type="radio" required value="L"><label for="L"> Laki-Laki</label>
-          <input id="P" v-model="gender" type="radio" required value="P" class="ml-5"><label for="P"> Perempuan</label>
+          <input id="L" v-model="gender" type="radio" required value="L" class="mr-1"><label for="L">Laki-Laki</label>
+          <input id="P" v-model="gender" type="radio" required value="P" class="ml-5 mr-1"><label
+            for="P"
+          >Perempuan</label>
         </div>
       </div>
       <div class="ml-32 mr-32 mb-7 text-black">
@@ -62,14 +97,36 @@ async function sendForm() {
           class="flex px-2 mt-2 h-12 text-black justify-start w-full"
         >
       </div>
-      <button type="submit" class="bg-green-400 rounded px-4 py-2 text-xl text-slate-100 mt-12">
-        Send Form
-      </button>
-      <div v-if="isSuccess">
-        <p class="text-green">
-          Congratulations! You have successfully registered your card!
+      <button
+        :disabled="isSubmitting" type="submit" class="rounded px-4 py-2 text-xl mt-12"
+        :class="{ 'bg-green-700/70 text-gray-500': isSubmitting, 'bg-green-700 text-slate-100': !isSubmitting }"
+      >
+        <p v-if="!isSubmitting">
+          Submit
         </p>
-      </div>
+        <p v-else>
+          Submitting...
+        </p>
+      </button>
     </form>
-  </div>
+  </main>
+  <aside
+    v-show="isModalOpened"
+    class="flex items-center justify-center p-1 fixed top-0 left-0 right-0 bottom-0 bg-black/50"
+  >
+    <div
+      class="flex flex-col p-6 gap-y-2 bg-amber-200 text-black rounded-lg items-center justify-center border-3"
+      :class="{ 'border-red-500': !isSuccess, 'border-green-500': isSuccess }"
+    >
+      <p v-if="isSuccess">
+        User has been successfully registered!
+      </p>
+      <p v-else>
+        There is an error when registering the user. Please try again!
+      </p>
+      <button class="bg-cyan-500 px-4 py-2 max-w-32 rounded" @click="modalButtonOnClick">
+        Got it!
+      </button>
+    </div>
+  </aside>
 </template>
