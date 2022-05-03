@@ -21,7 +21,9 @@ const removeFromIndexSet = (index: number) => {
 
 const doesIndexExistInTheSet = (index: number) => emptyStorefrontIndex.value.has(index)
 
-const { data, event } = useEventSource(import.meta.env.VITE_SSE_URL, ['empty', 'restocked'])
+const url = `${import.meta.env.VITE_API_URL}/sse`
+
+const { data, event } = useEventSource(url, ['empty', 'restocked'])
 
 watch([data, event], ([newData, newEvent]) => {
   if (newData) {

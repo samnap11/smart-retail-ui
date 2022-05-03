@@ -1,9 +1,8 @@
-import axios from 'axios'
-import type { CreateUserRequest } from '../interface/user'
+import type { CreateUserRequest } from '~/interface/user'
 
-const baseUrl = 'http://localhost:8080/'
+const url = `${import.meta.env.VITE_API_URL}/user`
 
-export const createUserApi = async(payload: CreateUserRequest): Promise<any> => {
-  const { data } = await axios.post(`${baseUrl}users`, payload)
-  return data
+export const createUserApi = async(payload: CreateUserRequest) => {
+  const { statusCode, isFinished, isFetching } = await useFetch(url).post(payload).json()
+  return { statusCode, isFinished, isFetching }
 }
