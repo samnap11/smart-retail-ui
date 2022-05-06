@@ -3,45 +3,117 @@
         {
             "section": "Section A",
             "storefronts": [
-                "Storefronts 1",
-                "Storefronts 2",
-                "Storefronts 3",
-                "Storefronts 4",
-                "Storefronts 5",
-                "Storefronts 6"
+                {
+                    "name": "Storefronts 1",
+                    "item": "Item A"
+                },
+                {
+                    "name": "Storefronts 2",
+                    "item": "Item B"
+                },
+                {
+                    "name": "Storefronts 3",
+                    "item": "Item C"
+                },
+                {
+                    "name": "Storefronts 4",
+                    "item": "Item D"
+                },
+                {
+                    "name": "Storefronts 5",
+                    "item": "Item E"
+                },
+                {
+                    "name": "Storefronts 6",
+                    "item": "Item F"
+                }
             ]
         },
         {
             "section": "Section B",
             "storefronts": [
-                "Storefronts 7",
-                "Storefronts 8",
-                "Storefronts 9",
-                "Storefronts 10",
-                "Storefronts 11",
-                "Storefronts 12"
+                {
+                    "name": "Storefronts 7",
+                    "item": "Item G"
+                },
+                {
+                    "name": "Storefronts 8",
+                    "item": "Item H"
+                },
+                {
+                    "name": "Storefronts 9",
+                    "item": "Item I"
+                },
+                {
+                    "name": "Storefronts 10",
+                    "item": "Item J"
+                },
+                {
+                    "name": "Storefronts 11",
+                    "item": "Item K"
+                },
+                {
+                    "name": "Storefronts 12",
+                    "item": "Item L"
+                }
             ]
         },
         {
             "section": "Section C",
             "storefronts": [
-                "Storefronts 13",
-                "Storefronts 14",
-                "Storefronts 15",
-                "Storefronts 16",
-                "Storefronts 17",
-                "Storefronts 18"
+                {
+                    "name": "Storefronts 13",
+                    "item": "Item M"
+                },
+                {
+                    "name": "Storefronts 14",
+                    "item": "Item N"
+                },
+                {
+                    "name": "Storefronts 15",
+                    "item": "Item O"
+                },
+                {
+                    "name": "Storefronts 16",
+                    "item": "Item P"
+                },
+                {
+                    "name": "Storefronts 17",
+                    "item": "Item Q"
+                },
+                {
+                    "name": "Storefronts 18",
+                    "item": "Item R"
+                }
             ]
         },
         {
             "section": "Section D",
             "storefronts": [
-                "Storefronts 19",
-                "Storefronts 20",
-                "Storefronts 21",
-                "Storefronts 22",
-                "Storefronts 23",
-                "Storefronts 24"
+                {
+                    "name": "Storefronts 19",
+                    "item": "Item S"
+                },
+                {
+                    "name": "Storefronts 20",
+                    "item": "Item T"
+                },
+                {
+                    "name": "Storefronts 21",
+                    "item": "Item U"
+                },
+                {
+                    "name": "Storefronts 22",
+                    "item": "Item V"
+                },
+                {
+                    "name": "Storefronts 23",
+                    "item": "Item W"
+                },
+                {
+                    "name": "Storefronts 24",
+                    "item": "Item X"
+                }
             ]
         }
     ]

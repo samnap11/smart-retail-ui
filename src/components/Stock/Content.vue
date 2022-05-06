@@ -1,8 +1,5 @@
 <script setup lang="ts">
-interface Item {
-  section: string
-  storefronts: string[]
-}
+import type { Item } from '~/interface/storefront'
 interface Props {
   data: Item[]
 }
@@ -45,7 +42,7 @@ const STOREFRONTS_AMOUNT_EACH_SECTION = props.data[0].storefronts.length
     <section class="grid grid-cols-4 gap-4">
       <Storefront
         v-for="(storefront, i) in item.storefronts"
-        :key="`storefront-${index * STOREFRONTS_AMOUNT_EACH_SECTION + i + 1}`" :store-front-name="storefront"
+        :key="`storefront-${index * STOREFRONTS_AMOUNT_EACH_SECTION + i + 1}`" :data="storefront"
         :empty="doesIndexExistInTheSet(index * STOREFRONTS_AMOUNT_EACH_SECTION + i + 1)"
       />
     </section>
