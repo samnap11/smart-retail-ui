@@ -6,3 +6,7 @@ export interface Item {
   section: string
   storefronts: StorefrontEntry[]
 }
+
+export interface Layout {
+  data: Item[]
+}
