@@ -58,7 +58,7 @@ watch(data, (newData) => {
   </h1>
 
   <main class="flex flex-col">
-    <form @submit.prevent="sendForm()">
+    <form @submit.prevent="sendForm">
       <div class="ml-32 mr-32  mb-7  text-black">
         <p class="text-left text-white">
           Nama Lengkap
