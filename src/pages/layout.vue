@@ -43,9 +43,49 @@ const submitForm = async() => {
     isSubmitting.value = false
   }
 }
+
+const obj = {
+  data: [
+    {
+      section: 'Section A',
+      storefronts: [
+        {
+          name: 'Storefronts 1',
+          item: 'Item A',
+        },
+        {
+          name: 'Storefronts 2',
+          item: 'Item B',
+        },
+        {
+          name: 'Storefronts 3',
+          item: 'Item C',
+        },
+        {
+          name: 'Storefronts 4',
+          item: 'Item D',
+        },
+        {
+          name: 'Storefronts 5',
+          item: 'Item E',
+        },
+        {
+          name: 'Storefronts 6',
+          item: 'Item F',
+        },
+      ],
+    },
+  ],
+}
+
+const str = JSON.stringify(obj, null, 2)
 </script>
 <template>
   <main class="flex flex-col items-center justify-center gap-y-8">
+    <pre class="px-4 py-2 mx-0 mb-4 rounded-md opacity-70 w-full overflow-auto bg-gray-800 text-left text-sm">
+      <h6 class="font-bold font-opensans text-xl text-white">JSON Format:</h6>
+      {{ str }}
+    </pre>
     <div
       class="flex items-center justify-center border-dotted border-2 border-sky-300 h-88 w-full"
       @dragover.stop.prevent="onDragOver" @drop.stop.prevent="onDrop"
