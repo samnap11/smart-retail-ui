@@ -24,6 +24,7 @@ export default defineConfig({
       fonts: {
         roboto: 'Roboto:400,600,700',
         lato: 'Lato:400,600,700',
+        opensans: 'Open Sans:700',
       },
     }),
   ],
