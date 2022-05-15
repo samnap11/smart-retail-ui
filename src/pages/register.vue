@@ -2,28 +2,26 @@
 import { createUserApi } from '~/api/user'
 import type { CreateUserRequest } from '~/interface/user'
 
-const name = ref('')
-const gender = ref<'L' | 'P'>('L')
-const birthdate = ref('')
-const cardId = ref('')
-const isSuccess = ref(false)
-
-const userData = reactive({
+const initialUserData = {
   name: '',
   gender: 'L',
   birthdate: '',
   cardId: '',
-})
+}
+
+const isSuccess = ref(false)
+
+const userData = reactive({ ...initialUserData })
 
 const isModalOpened = ref(false)
 const isSubmitting = ref(false)
 
 const sendForm = async() => {
   const req: CreateUserRequest = {
-    name: name.value,
-    gender: gender.value,
-    birthdate: birthdate.value,
-    card_id: cardId.value,
+    name: userData.name,
+    gender: userData.gender as 'L' | 'P',
+    birthdate: userData.birthdate,
+    card_id: userData.cardId,
   }
 
   const { statusCode, isFinished, isFetching } = await createUserApi(req)
@@ -38,18 +36,14 @@ const sendForm = async() => {
   })
 }
 
-const clearForm = () => {
-  name.value = ''
-  gender.value = 'L'
-  birthdate.value = ''
-  cardId.value = ''
-  isSuccess.value = false
+const resetForm = () => {
+  Object.assign(userData, { ...initialUserData })
 }
 
 const modalButtonOnClick = () => {
   isModalOpened.value = false
   if (isSuccess.value)
-    clearForm()
+    resetForm()
 }
 
 const url = `${import.meta.env.VITE_API_URL}/sse`
@@ -57,7 +51,7 @@ const url = `${import.meta.env.VITE_API_URL}/sse`
 const { data } = useEventSource(url, ['register'])
 watch(data, (newData) => {
   if (newData)
-    cardId.value = newData
+    userData.cardId = newData
 })
 </script>
 
@@ -67,7 +61,7 @@ watch(data, (newData) => {
       Registration Form
     </h1>
     <form @submit.prevent="sendForm">
-      <div m="b-7">
+      <div m="b-4">
         <div text-sm mb-1>
           Nama Lengkap
         </div>
@@ -78,7 +72,7 @@ watch(data, (newData) => {
           text-input
         >
       </div>
-      <div m="b-7">
+      <div m="b-4">
         <div text-sm mb-1>
           Jenis Kelamin
         </div>
@@ -89,7 +83,7 @@ watch(data, (newData) => {
           >Perempuan</label>
         </div>
       </div>
-      <div m="b-7">
+      <div m="b-4">
         <div text-sm mb-1>
           Tanggal Lahir
         </div>
@@ -98,7 +92,7 @@ watch(data, (newData) => {
           text-input
         >
       </div>
-      <div m="b-7">
+      <div m="b-4">
         <div text-sm mb-1>
           ID Kartu
         </div>
@@ -107,7 +101,16 @@ watch(data, (newData) => {
           text-input
         >
       </div>
-      <pre rounded bg-gray-800 p-2 mb-2>{{ userData }}</pre>
+      <pre rounded bg-gray-800 p-2 mb-7 text-sm>{{ userData }}</pre>
+      <button
+        btn
+        w-full
+        p-2
+        mb-4
+        @click="(e) => {e.preventDefault(); resetForm()}"
+      >
+        Reset Form
+      </button>
       <button
         btn
         w-full
