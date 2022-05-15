@@ -52,26 +52,28 @@ watch(data, (newData) => {
     cardId.value = newData
 })
 </script>
-<template>
-  <h1 class="bold text-7xl m-10">
-    Registration Form
-  </h1>
 
-  <main class="flex flex-col">
+<template>
+  <div flex="~ col" w-full lg:w-128>
+    <h1 font-bold text-4xl mb-4 underline="~ dotted">
+      Registration Form
+    </h1>
     <form @submit.prevent="sendForm">
-      <div class="ml-32 mr-32  mb-7  text-black">
-        <p class="text-left text-white">
+      <div m="b-7">
+        <div text-sm mb-1>
           Nama Lengkap
-        </p>
+        </div>
         <input
-          v-model="name" placeholder="Nama Lengkap" required
-          class="flex px-2 mt-2 h-12 text-black justify-start w-full"
+          v-model="name"
+          placeholder="Nama Lengkap"
+          required
+          text-input
         >
       </div>
-      <div class="ml-32 mr-32 mb-7 text-black">
-        <p class="text-left text-white">
+      <div m="b-7">
+        <div text-sm mb-1>
           Jenis Kelamin
-        </p>
+        </div>
         <div class="flex text-white mt-2 left items-center">
           <input id="L" v-model="gender" type="radio" required value="L" class="mr-1"><label for="L">Laki-Laki</label>
           <input id="P" v-model="gender" type="radio" required value="P" class="ml-5 mr-1"><label
@@ -79,37 +81,41 @@ watch(data, (newData) => {
           >Perempuan</label>
         </div>
       </div>
-      <div class="ml-32 mr-32 mb-7 text-black">
-        <p class="text-left text-white">
+      <div m="b-7">
+        <div text-sm mb-1>
           Tanggal Lahir
-        </p>
+        </div>
         <input
           v-model="birthdate" type="date" max="2009-12-31" required
-          class="flex px-2 mt-2 h-12 text-black justify-start w-full"
+          text-input
         >
       </div>
-      <div class="ml-32 mr-32 mb-7  text-black">
-        <p class="text-left text-white">
+      <div m="b-7">
+        <div text-sm mb-1>
           ID Kartu
-        </p>
+        </div>
         <input
           v-model="cardId" placeholder="ID Kartu" disabled
-          class="flex px-2 mt-2 h-12 text-black justify-start w-full"
+          text-input
         >
       </div>
       <button
-        :disabled="isSubmitting" type="submit" class="rounded px-4 py-2 text-xl mt-12"
-        :class="{ 'bg-green-700/70 text-gray-500': isSubmitting, 'bg-green-700 text-slate-100': !isSubmitting }"
+        btn
+        w-full
+        p-2
+        :disabled="isSubmitting"
+        type="submit"
+        :class="{ 'bg-teal-700/70 text-gray-500': isSubmitting }"
       >
-        <p v-if="!isSubmitting">
+        <template v-if="!isSubmitting">
           Submit
-        </p>
-        <p v-else>
+        </template>
+        <template v-else>
           Submitting...
-        </p>
+        </template>
       </button>
     </form>
-  </main>
+  </div>
   <aside
     v-show="isModalOpened"
     class="flex items-center justify-center p-1 fixed top-0 left-0 right-0 bottom-0 bg-black/50"
@@ -124,7 +130,7 @@ watch(data, (newData) => {
       <p v-else>
         There is an error when registering the user. Please try again!
       </p>
-      <button class="bg-cyan-500 px-4 py-2 max-w-32 rounded" @click="modalButtonOnClick">
+      <button btn @click="modalButtonOnClick">
         Got it!
       </button>
     </div>
