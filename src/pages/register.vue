@@ -8,6 +8,13 @@ const birthdate = ref('')
 const cardId = ref('')
 const isSuccess = ref(false)
 
+const userData = reactive({
+  name: '',
+  gender: 'L',
+  birthdate: '',
+  cardId: '',
+})
+
 const isModalOpened = ref(false)
 const isSubmitting = ref(false)
 
@@ -18,6 +25,7 @@ const sendForm = async() => {
     birthdate: birthdate.value,
     card_id: cardId.value,
   }
+
   const { statusCode, isFinished, isFetching } = await createUserApi(req)
   watch([isFetching, isFinished], ([newIsFetching, newIsFinished]) => {
     if (newIsFetching && !newIsFinished) { isSubmitting.value = true }
@@ -64,7 +72,7 @@ watch(data, (newData) => {
           Nama Lengkap
         </div>
         <input
-          v-model="name"
+          v-model="userData.name"
           placeholder="Nama Lengkap"
           required
           text-input
@@ -75,8 +83,8 @@ watch(data, (newData) => {
           Jenis Kelamin
         </div>
         <div class="flex text-white mt-2 left items-center">
-          <input id="L" v-model="gender" type="radio" required value="L" class="mr-1"><label for="L">Laki-Laki</label>
-          <input id="P" v-model="gender" type="radio" required value="P" class="ml-5 mr-1"><label
+          <input id="L" v-model="userData.gender" type="radio" required value="L" class="mr-1"><label for="L">Laki-Laki</label>
+          <input id="P" v-model="userData.gender" type="radio" required value="P" class="ml-5 mr-1"><label
             for="P"
           >Perempuan</label>
         </div>
@@ -86,7 +94,7 @@ watch(data, (newData) => {
           Tanggal Lahir
         </div>
         <input
-          v-model="birthdate" type="date" max="2009-12-31" required
+          v-model="userData.birthdate" type="date" max="2009-12-31" required
           text-input
         >
       </div>
@@ -95,10 +103,11 @@ watch(data, (newData) => {
           ID Kartu
         </div>
         <input
-          v-model="cardId" placeholder="ID Kartu" disabled
+          v-model="userData.cardId" placeholder="ID Kartu" disabled
           text-input
         >
       </div>
+      <pre rounded bg-gray-800 p-2 mb-2>{{ userData }}</pre>
       <button
         btn
         w-full
