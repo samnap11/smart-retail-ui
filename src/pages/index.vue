@@ -8,18 +8,18 @@
         <h1 font="sans bold" text="xl center">
           Smart Retail System
         </h1>
-        <div italic text="xs md:sm gray-600">
+        <div italic text="xs md:sm center gray-600">
           Made for IF4051 IoT System Development
         </div>
       </div>
       <div flex="~ col" space="y-2" text="sm">
-        <router-link to="/register" btn text-sm>
+        <router-link to="/register" btn p-2 text-sm text-center>
           Register
         </router-link>
-        <router-link to="/stock" btn text-sm>
+        <router-link to="/stock" btn p-2 text-sm text-center>
           View Stock
         </router-link>
-        <router-link to="/layout" btn text-sm>
+        <router-link to="/layout" btn p-2 text-sm text-center>
           View Layout
         </router-link>
       </div>
