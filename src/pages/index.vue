@@ -22,6 +22,9 @@
         <router-link to="/layout" btn p-2 text-sm text-center>
           View Layout
         </router-link>
+        <router-link to="/recommendation" btn p-2 text-sm text-center>
+          View Recommendation
+        </router-link>
       </div>
     </div>
   </div>
