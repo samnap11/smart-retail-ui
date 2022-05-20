@@ -20,20 +20,24 @@ const sendForm = async() => {
   const req: CreateUserRequest = {
     name: userData.name,
     gender: userData.gender as 'L' | 'P',
-    birthdate: userData.birthdate,
+    birthdate: new Date(userData.birthdate).toISOString(),
     card_id: userData.cardId,
   }
+  // const { statusCode, isFinished, isFetching } = await createUserApi(req)
+  // watch([isFetching, isFinished], ([newIsFetching, newIsFinished]) => {
+  //   if (newIsFetching && !newIsFinished) { isSubmitting.value = true }
 
-  const { statusCode, isFinished, isFetching } = await createUserApi(req)
-  watch([isFetching, isFinished], ([newIsFetching, newIsFinished]) => {
-    if (newIsFetching && !newIsFinished) { isSubmitting.value = true }
-
-    else if (!newIsFetching && newIsFinished) {
-      isSubmitting.value = false
-      isSuccess.value = statusCode.value === 200
-      isModalOpened.value = true
-    }
-  })
+  //   else if (!newIsFetching && newIsFinished) {
+  //     isSubmitting.value = false
+  //     isSuccess.value = statusCode.value === 200
+  //     isModalOpened.value = true
+  //   }
+  // })
+  isSuccess.value = true
+  isModalOpened.value = true
+  console.log(isSuccess)
+  console.log(isModalOpened)
+  console.log(isSubmitting)
 }
 
 const resetForm = () => {
