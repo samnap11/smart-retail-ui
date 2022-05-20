@@ -7,7 +7,7 @@ const useRecommendation = async() => {
     fetchOptions: {
       mode: 'cors',
     },
-  })('recommendation')
+  })('')
   const { data } = await fetch.json<Recommendation[]>()
   return data
 }
